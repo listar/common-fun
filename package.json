@@ -1,6 +1,6 @@
 {
   "name": "@qqfavcom/common-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "common function util",
   "main": "index.js",
   "scripts": {
