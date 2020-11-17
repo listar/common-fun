@@ -1,0 +1,26 @@
+{
+  "name": "@qqfavcom/common-utils",
+  "version": "1.0.1",
+  "description": "common function util",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx babel src/ --out-dir lib",
+    "dopublish": "npm run compile && npm publish --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/listar/common-fun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/listar/common-fun/issues"
+  },
+  "homepage": "https://github.com/listar/common-fun#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1"
+  }
+}
