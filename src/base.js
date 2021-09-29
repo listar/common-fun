@@ -154,3 +154,96 @@ export function getRangeValue(min, max) {
 export function randomValue(length) {
   return Math.floor(Math.random() * length);
 }
+
+
+// 逆转数字
+export const reverseNumber = n =>
+  parseFloat(`${n}`.split('').reverse().join('')) * Math.sign(n);
+
+// reverseNumber(123); // 321
+// reverseNumber(-200); // -2
+// reverseNumber(32.4); // 4.23
+// reverseNumber(-32.4); // -4.23
+
+
+// 获取数组中最大的n个数字
+export const maxFromArray = (array, number = 1) => [...array]
+  .sort((x, y) => y -x).slice(0, number);
+
+// maxFromArray([2, 1, 4, 3, 5, 6]); // [6]
+// maxFromArray([2, 1, 4, 3, 6, 6], 2); // [6, 6]
+
+
+// 计算阶乘
+export const factorial = (number) =>
+  number < 0
+    ? (() => {
+      throw new TypeError('类型错误');
+    })()
+    : number <= 1
+    ? 1
+    : number * factorial(number - 1);
+
+// factorial(4); // 24
+// factorial(10); // 3628800
+
+// 判断当前运行环境是否为浏览器
+export const isBrowser = () => ![typeof window, typeof document].includes('undefined');
+
+// isBrowser(); // false (Node)
+// isBrowser(); // true (browser)
+
+
+// 判断当前运行环境是否为Node.js
+export const isNode = () =>
+  typeof process !== 'undefined' &&
+  !!process.versions &&
+  !!process.versions.node;
+
+// isNode(); // true (Node)
+// isNode(); // false (browser)
+
+
+// 转义字符串以在 HTML 中使用
+export const escapeHTML = str =>
+  str.replace(
+    /[&<>'"]/g,
+    tag =>
+      ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag)
+  );
+
+// escapeHTML('<a href="#">tntweb</a>'); 
+
+
+// Unescapes 转义 HTML 字符
+export const unescapeHTML = str =>
+  str.replace(
+    /&amp;|&lt;|&gt;|&#39;|&quot;/g,
+    tag =>
+      ({
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&#39;': "'",
+        '&quot;': '"'
+      }[tag] || tag)
+  );
+
+// unescapeHTML('&lt;a href=&quot;#&quot;&gt;tntweb&lt;/a&gt;');
+
+// 以字节为单位返回字符串的长度
+export const byteSize = str => new Blob([str]).size;
+
+// byteSize('🚗'); // 4
+// byteSize('Hello World'); // 11
+
+// 随机获取数组中元素
+export const randomly = arr => arr[Math.floor(Math.random() * arr.length)];
+
+// randomly([1, 3, 5, 7, 9, 11]);
